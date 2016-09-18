@@ -1,0 +1,21 @@
+<link href="css/blog.css" rel="stylesheet">
+<div class="container content" ng-controller="blog">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="blog-bar">Blog</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row"  ng-repeat="row in rows">
+            <div class="col-sm-4" ng-repeat="animate in row">
+                <a href="#/blogDetails/{{animate.title}}">
+                    <div class="article">
+                        <h4>{{animate.title}}</h4>
+                        <img src="{{animate.imageSrc}}">
+                        <p>{{animate.content}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

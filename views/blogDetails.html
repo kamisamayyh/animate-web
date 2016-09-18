@@ -1,0 +1,33 @@
+<link href="css/blogDetails.css" rel="stylesheet">
+<link href="lib/iconfont/iconfont.css" rel="stylesheet">
+<div class="container content" ng-controller="blogDetails">
+    <div class="row">
+        <div class="article">
+            <div class="article-header row">
+                <div class="col-sm-2 button">Previous post</div><div class="col-sm-2 button">Next post</div><div class="col-sm-8 blank"></div>
+            </div>
+            <div class="article-content row">
+                <div class="article-content-header">
+                    {{details.detailsTitle}}
+                </div>
+                <div class="article-content-body row">
+                    <div class="article-title">
+                        <div class="col-sm-2"><span class="type">STICKY</span></div>
+                        <div class="col-sm-10">
+                            <span class="width-33"><i class="iconfont">&#xe613;</i>2016.05.09</span>
+                            <span class="width-33"><i class="iconfont">&#xe600;</i>author</span>
+                            <span class="width-33"><i class="iconfont">&#xe63f;</i>eyes</span>
+                        </div>
+                    </div>
+                    <div class="article-content-main text-center" details-content>
+
+                    </div>
+                </div>
+            </div>
+            <div class="article-footer">
+                <p>Categories:   公告</p>
+                <p>Tags:  公告</p>
+            </div>
+        </div>
+    </div>
+</div>

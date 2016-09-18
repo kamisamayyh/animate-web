@@ -1,0 +1,139 @@
+.ng-scope{
+
+}
+body{
+    background-image: url("../images/back.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+header{
+    background: rgba(0,0,0,0.1);
+}
+nav{
+    background: rgba(0,0,0,0.2);
+
+}
+nav ul{
+    list-style: none;
+    float: right;
+}
+nav ul li,nav .logo{
+    display: inline-block;
+    line-height: 50px;
+    float: right;
+    height: 48px;
+}
+nav ul li{
+    float: left;
+    opacity: 0.7;
+    -webkit-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+nav ul li:nth-of-type(1){
+    opacity: 1;
+}
+nav ul li:first-of-type(1){
+    opacity: 1;
+}
+nav ul li.action{
+    border-bottom: 2px solid #ffffff;
+    opacity: 1;
+}
+nav ul li a{
+    display: inline-block;
+    line-height: 50px;
+    text-decoration: none;
+    height: inherit;/*继承父元素*/
+}
+nav .logo{
+    float: left;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+nav .logo a{
+    color: #fff;
+}
+nav ul li a{
+    color: #fff;
+}
+.search{
+    display: inline-block;
+    text-align: center;
+    float: right;
+    margin-right: 1em;
+}
+.search input{
+    background-color: inherit;
+    margin-top: 5px;
+    line-height: 30px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    outline: none;
+    color: #ffffff;
+}
+button{
+    border: none;
+    background-color: #29cfc0;
+    color: #eee;
+    padding: 10px;
+}
+.view{
+
+}
+.footer{
+    padding: 3em 2em;
+    background-color: rgb(51,51,51);
+}
+.footer p{
+    color: #ffffff;
+    margin: 0;
+}
+
+/*重写bootstrap*/
+
+@media screen and (min-width: 768px){
+    .navbar-nav{
+        float: right;
+    }
+
+}
+@media screen and (max-width: 768px) {
+    #example-navbar-collapse{
+        position: absolute;
+        z-index: 99999;
+    }
+    .nav.navbar-nav li{
+        display: block;
+        float: none;
+        width: 100vw;
+        background-color: rgba(221,221,221,0.5);
+        padding-left: 20px;
+        white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .search{
+        display: block;
+        float: left;
+        padding-left: 20px;
+    }
+    .navbar-nav{
+        margin-top: 0;
+    }
+}
+.nav>li>a:focus,.nav>li>a:hover{
+    color: #ffffff;
+    background-color: transparent;
+}
+a:-webkit-any-link {
+    cursor: auto;
+}
+.navbar-toggle{
+    border: 1px solid rgb(221,221,221);
+}
+.navbar-toggle .icon-bar{
+    background-color: rgb(221,221,221);
+}

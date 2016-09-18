@@ -1,0 +1,36 @@
+.content{
+    border-top: 0.3em solid  rgb(228,76,101);
+    background-color: rgb(89,89,87);
+    margin: 0;
+    width: 100%;
+    padding: 0 5%;
+}
+.blog-bar{
+    background-color: dimgray;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 1em;
+    padding: 0.3em 0;
+    margin: 0.5em;
+    font-size: 25px;
+    box-shadow: 2px 2px 5px black;
+}
+.article{
+    color: #ffffff;
+    margin: 2em 1em;
+    border-radius: 1em;
+    text-align: center;
+    background-color: rgb(35, 34, 31);
+    box-shadow: 2px 4px 4px black;
+    padding-top: 1px;
+}
+.article h4{
+    padding:0.5em 2em;
+}
+.article img{
+    width: 100%;
+}
+.article p{
+    padding: 1em;
+}
