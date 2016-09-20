@@ -1,5 +1,5 @@
 <link href="css/blog.css" rel="stylesheet">
-<div class="container content" ng-controller="blog">
+<div class="container content">
     <div class="row">
         <div class="col-md-12">
             <div class="blog-bar">Blog</div>
@@ -11,7 +11,7 @@
                 <a href="#/blogDetails/{{animate.title}}">
                     <div class="article">
                         <h4>{{animate.title}}</h4>
-                        <img src="{{animate.imageSrc}}">
+                        <img ng-src="{{animate.imageSrc}}">
                         <p>{{animate.content}}</p>
                     </div>
                 </a>

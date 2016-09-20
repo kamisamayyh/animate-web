@@ -1,5 +1,5 @@
 <link href="css/main.css" rel="stylesheet">
-<div ng-controller="hello">
+<div>
     <div id="banner">
         <div class="inner">
             <h1>Blog</h1>
@@ -29,7 +29,7 @@
                         </div>
                         <p>{{Animate.content}}</p>
                     </div>
-                    <div ng-if="$index%2==1" class="text-section col-md-7"slide-into scroll-trigger="slideIntoDo('left')">
+                    <div ng-if="$index%2==1" class="text-section col-md-7" slide-into scroll-trigger="slideIntoDo('left')">
                         <h2>{{Animate.title +$index}}</h2>
                         <div class="sub-heading">
                             {{Animate.subhead}}

@@ -71,7 +71,6 @@ angular.module('scroll-trigger', [])
 
           if (service.needAction(item, threshold, scrollEvent)) {
             item.action();
-
             if (!item.persist) {
               delete buffer[id];
             }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="animate">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     <title></title>
-    <link href="lib/bootstrap.min.css" rel="stylesheet">
+    <link href="js/lib/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/nav.css" rel="stylesheet">
 </head>
 <body>
@@ -44,69 +44,70 @@
     <p>© Night. All rights reserved.<span></span></p>
 </div>
 </body>
-<script src="lib/jquery-2.1.4.js"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-animate.js"></script>-->
-<script src="lib/1.4.2/angular.js"></script>
-<script src="lib/1.4.2/angular-route.js"></script>
-<script src="lib/1.4.2/angular-animate.js"></script>
-<script src="lib/scroll-trigger.js"></script>
+<!--<script src="lib/jquery-2.1.4.js"></script>-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-animate.js"></script>&ndash;&gt;-->
+<!--<script src="lib/1.4.2/angular.js"></script>-->
+<!--<script src="lib/1.4.2/angular-route.js"></script>-->
+<!--<script src="lib/1.4.2/angular-animate.js"></script>-->
+<!--<script src="lib/scroll-trigger.js"></script>-->
 
-<script src="js/appRoute.js"></script>
+<!--<script src="js/app/route/appRoute.js"></script>-->
 <script>
-    var myModule = angular.module("animate",['ngRoute','ngAnimate','scroll-trigger']);
-    myModule.config(RouteConfig);
-
-    myModule.animation('.nav-change',function(){
-        return {
-            beforeAddClass : function(element, className, done) {
-                element.css({
-                    opacity: 0
-                }).animate({
-                    opacity: 1
-                },500, done);
-            },
-            removeClass : function(element, className, done) {
-                element.css({
-                    opacity: 0
-                }).animate({
-                    opacity: 0.7
-                },500, done);
-            }
-        }
-    });
-    myModule.animation('.view',function(){
-        return {
-            enter: function(element, done) {
-                element.css({
-                    opacity: 0.5
-                }).animate({
-                    opacity: 1
-                }, 1000, done);
-            }
-        };
-
-    });
-    myModule.directive('backButton', ['$window',function ($window) {
-        return {
-            restrict: 'A',
-            link: function (scope, elem, attrs) {
-                elem.bind('click', function () {
-                    alert($(document).width());
-                    alert("backButton");
-                    console.log($window);
-                    $window.history.back();
-                });
-            }
-        }
-    }])
+//    var myModule = angular.module("animate",['ngRoute','ngAnimate','scroll-trigger']);
+//    myModule.config(RouteConfig);
+//    myModule.animation('.nav-change',function(){
+//        return {
+//            beforeAddClass : function(element, className, done) {
+//                element.css({
+//                    opacity: 0
+//                }).animate({
+//                    opacity: 1
+//                },500, done);
+//            },
+//            removeClass : function(element, className, done) {
+//                element.css({
+//                    opacity: 0
+//                }).animate({
+//                    opacity: 0.7
+//                },500, done);
+//            }
+//        }
+//    });
+//    myModule.animation('.view',function(){
+//        return {
+//            enter: function(element, done) {
+//                element.css({
+//                    opacity: 0.5
+//                }).animate({
+//                    opacity: 1
+//                }, 1000, done);
+//            }
+//        };
+//
+//    });
+//    myModule.directive('backButton', ['$window',function ($window) {
+//        return {
+//            restrict: 'A',
+//            link: function (scope, elem, attrs) {
+//                elem.bind('click', function () {
+//                    alert($(document).width());
+//                    alert("backButton");
+//                    console.log($window);
+//                    $window.history.back();
+//                });
+//            }
+//        }
+//    }])
 </script>
-<script src="js/commonDirective/blogRepeat.js"></script>
-<script src="js/control/indexControl.js"></script>
-<script src="js/control/japanControl.js"></script>
-<script src="js/control/chinaControl.js"></script>
-<script src="js/control/blogControl.js"></script>
-<script src="js/control/blogDetailsControl.js"></script>
-<script src="lib/bootstrap.js"></script>
+<!--<script src="js/app/commonDirective/blogRepeat.js"></script>-->
+<!--<script src="js/app/control/indexControl.js"></script>-->
+<!--<script src="js/app/control/japanControl.js"></script>-->
+<!--<script src="js/app/control/chinaControl.js"></script>-->
+<!--<script src="js/app/control/blogControl.js"></script>-->
+<!--<script src="js/app/control/blogDetailsControl.js"></script>-->
+<!--<script src="lib/bootstrap.js"></script>-->
+
+<script data-main="js/main.js" src="js/lib/require.js"></script>
 </html>

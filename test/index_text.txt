@@ -1,0 +1,58 @@
+{
+    "greeting":
+    {
+        "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur cupiditate eveniet explicabo impedit nihil odio possimus quas recusandae sint. Cum, illum iure laboriosam minima nesciunt sed soluta sunt temporibus."
+    },
+    "content":
+    [
+        {
+        "type":"日本动漫",
+        "animates":
+            [
+                {
+                     "title":"标题",
+                     "subhead":"副标题",
+                     "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur cupiditate eveniet explicabo impedit nihil odio possimus quas recusandae sint. Cum, illum iure laboriosam minima nesciunt sed soluta sunt temporibus.",
+                     "imageSrc":"images/pic01.jpg"
+                },
+                {
+                     "title":"标题",
+                     "subhead":"副标题",
+                     "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur cupiditate eveniet explicabo impedit nihil odio possimus quas recusandae sint. Cum, illum iure laboriosam minima nesciunt sed soluta sunt temporibus.",
+                     "imageSrc":"images/pic02.jpg"
+                },
+                {
+                     "title":"标题",
+                     "subhead":"副标题",
+                     "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur cupiditate eveniet explicabo impedit nihil odio possimus quas recusandae sint. Cum, illum iure laboriosam minima nesciunt sed soluta sunt temporibus.",
+                     "imageSrc":"images/pic03.jpg"
+                }
+            ]
+        },
+        {
+        "type":"国产动漫",
+        "animates":
+            [
+                {
+                     "title":"标题",
+                     "subhead":"副标题",
+                     "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur cupiditate eveniet explicabo impedit nihil odio possimus quas recusandae sint. Cum, illum iure laboriosam minima nesciunt sed soluta sunt temporibus.",
+                     "imageSrc":"images/pic01.jpg"
+                },
+                {
+                     "title":"标题",
+                     "subhead":"副标题",
+                     "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur cupiditate eveniet explicabo impedit nihil odio possimus quas recusandae sint. Cum, illum iure laboriosam minima nesciunt sed soluta sunt temporibus.",
+                     "imageSrc":"images/pic02.jpg"
+                },
+                {
+                     "title":"标题",
+                     "subhead":"副标题",
+                     "content":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur cupiditate eveniet explicabo impedit nihil odio possimus quas recusandae sint. Cum, illum iure laboriosam minima nesciunt sed soluta sunt temporibus.",
+                     "imageSrc":"images/pic03.jpg"
+                }
+            ]
+        }
+    ]
+}
+

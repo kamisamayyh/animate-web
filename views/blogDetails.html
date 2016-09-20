@@ -1,6 +1,6 @@
 <link href="css/blogDetails.css" rel="stylesheet">
-<link href="lib/iconfont/iconfont.css" rel="stylesheet">
-<div class="container content" ng-controller="blogDetails">
+<link href="lib/css/iconfont/iconfont.css" rel="stylesheet">
+<div class="container content">
     <div class="row">
         <div class="article">
             <div class="article-header row">
@@ -19,8 +19,7 @@
                             <span class="width-33"><i class="iconfont">&#xe63f;</i>eyes</span>
                         </div>
                     </div>
-                    <div class="article-content-main text-center" details-content>
-
+                    <div class="article-content-main text-center" ng-bind-html="details.detailsContent | trustHtml">
                     </div>
                 </div>
             </div>
