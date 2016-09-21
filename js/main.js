@@ -28,7 +28,10 @@ require.config({
 
         "slideIntoDirective":"app/directive/slideInto",
 
-        'animate':'app/animate/animate',
+        'viewAnimate':'app/animate/viewAnimate',//animate
+        'navChangeAnimate':'app/animate/navChangeAnimate',
+
+        'trustHtml':'app/filter/trustHtml',//filter
 
         "route" : "app/route/appRoute"
     },
@@ -59,7 +62,7 @@ require.config({
 });
 
 
-require(['jquery','angular','angular-route','angular-animate','scroll-trigger','app','route','blogCtrl','blogDetailsCtrl','chinaCtrl','indexCtrl','japanCtrl','slideIntoDirective','animate'],function ($,angular){
+require(['jquery','angular','angular-route','angular-animate','scroll-trigger','app','route','blogCtrl','blogDetailsCtrl','chinaCtrl','indexCtrl','japanCtrl','slideIntoDirective','viewAnimate','navChangeAnimate','trustHtml'],function ($,angular){
 
     $(function () {
         angular.bootstrap(document,["animateApp"]);
