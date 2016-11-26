@@ -1,0 +1,27 @@
+<link href="css/animatePage.css" rel="stylesheet">
+<div ng-controller="japan">
+    <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}" ng-repeat="carouselImg in carouselImgs"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item {{$index==0?'active':''}}" ng-repeat="carouselImg in carouselImgs">
+                <div class="img-carousel" style="background-image: url({{carouselImg}})"></div>
+                <!--<img src="images/carousel/Carousel1.png" alt="First slide">-->
+            </div>
+        </div>
+    </div>
+    <div class="container content">
+        <div class="row"  ng-repeat="row in rows">
+            <div class="col-sm-4" ng-repeat="animate in row">
+                <div class="article">
+                    <h4>{{animate.title}}</h4>
+                    <img ng-src="{{animate.imageSrc}}">
+                    <p>{{animate.content}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

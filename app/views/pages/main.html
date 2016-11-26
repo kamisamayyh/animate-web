@@ -1,0 +1,50 @@
+<link href="../../css/main.css" rel="stylesheet">
+<div>
+    <div id="banner">
+        <div class="inner">
+            <h1>Blog</h1>
+            <p class="sub-heading" >
+                {{greeting.text}}
+            </p>
+            <button>了解我</button>
+        </div>
+        <div back-button class="more">
+            更多
+        </div>
+    </div>
+    <div class="container content">
+        <div ng-repeat="animatesType in animatesByType" >
+            <div class="gray-section-head" slide-into scroll-trigger="slideIntoDo('bottom',1000)">
+                <h2>{{animatesType.type}}</h2>
+            </div>
+            <section class="gray-section" >
+                <div class="article-preview row" ng-repeat="Animate in animatesType.animates track by $index"  style="{{'z-index:'+(8-$index)}}">
+                    <div ng-if="$index%2==0" class="img-section col-md-5" slide-into scroll-trigger="slideIntoDo('left')">
+                        <img ng-src="{{Animate.imageSrc}}">
+                    </div>
+                    <div ng-if="$index%2==0" class="text-section col-md-7" slide-into scroll-trigger="slideIntoDo('right')">
+                        <h2>{{Animate.title +$index}}</h2>
+                        <div class="sub-heading">
+                           {{Animate.subhead}}
+                        </div>
+                        <p>{{Animate.content}}</p>
+                    </div>
+                    <div ng-if="$index%2==1" class="text-section col-md-7" slide-into scroll-trigger="slideIntoDo('left')">
+                        <h2>{{Animate.title +$index}}</h2>
+                        <div class="sub-heading">
+                            {{Animate.subhead}}
+                        </div>
+                        <p>{{Animate.content}}</p>
+                    </div>
+                    <div ng-if="$index%2==1" class="img-section col-md-5" slide-into scroll-trigger="slideIntoDo('right')">
+                        <img ng-src="{{Animate.imageSrc}}">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="footer-header text-center">
+        <p slide-into scroll-trigger="slideIntoDo('bottom',3000)">联系方式<br>这是我的联系方式yo<br><span>QQ871147642</span></p>
+    </div>
+
+</div>

@@ -1,0 +1,96 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">用户</h1>
+</div>
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold">
+            用户信息
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal  form-validation" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-username">用户名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name" ng-model="user.name" id="input-username" ng-pattern="/^[a-zA-Z0-9]{4,10}$/" required >
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" >密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password" ng-model="password" class="form-control" required >
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">重复密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="confirm_password" required ng-model="confirm_password" ui-validate=" '$value==password' " ui-validate-watch=" 'password' ">
+                        <span ng-show='form.confirm_password.$error.validator'>Passwords do not match!</span>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-nickname">昵称</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input-nickname">
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">邮箱</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" ng-model="user.email" required >
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group" ng-controller="ImgCropCtrl">
+                    <label class="col-sm-2 control-label">头像</label>
+                    <div class="col-sm-10">
+                        <input ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default"
+                               id="fileInput" data-classInput="form-control inline v-middle input-s">
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-2 wrapper-md">
+                        <div class="hbox hbox-auto-xs">
+                            <div class="col">
+                                <div class="wrapper-sm b-a bg-white m-r-xs m-b-xs">
+                                    <div class="bg-light" style="height:320px">
+                                        <img-crop
+                                                image="myImage"
+                                                result-image="myCroppedImage"
+                                                result-image-size="160"
+                                                area-type="{{cropType}}"
+                                                ></img-crop>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="inline bg-white wrapper-sm b-a">
+                                    <div class="bg-light">
+                                        <img ng-src="{{myCroppedImage}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group m-t">
+                            <label class="btn btn-default" ng-model="cropType" btn-radio="'circle'">Circle</label>
+                            <label class="btn btn-default" ng-model="cropType" btn-radio="'square'">Square</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

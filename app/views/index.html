@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title></title>
+    <link href="../../js/lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/nav.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="logo"><a href="#">Animate</a> </div>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav" >
+                <li>
+                    <div class="search">
+                        <form action="">
+                            <input class="input-medium search-query" type="text" name="" id="">
+                            <button class="btn" type="submit"><i class="icon-search"></i>搜索</button>
+                        </form>
+                    </div>
+                </li>
+                <li ng-init="isActive=0" class="nav-change" ng-class="isActive== 0?'action':''" ng-click="isActive=0"><a href="#/index" >主页</a></li>
+                <li class="nav-change" ng-class="isActive== 1?'action':''" ng-click="isActive=1"><a href="#/japan">日本动漫</a></li>
+                <li class="nav-change" ng-class="isActive== 2?'action':''" ng-click="isActive=2"><a href="#/china">国产动漫</a></li>
+                <li class="nav-change" ng-class="isActive== 3?'action':''" ng-click="isActive=3"><a href="#/blog">博客</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+<div ng-view class="view"></div>
+<div class="footer text-center">
+    <p>© Night. All rights reserved.<span></span></p>
+</div>
+</body>
+<!--<script src="lib/jquery-2.1.4.js"></script>-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-animate.js"></script>&ndash;&gt;-->
+<!--<script src="lib/1.4.2/angular.js"></script>-->
+<!--<script src="lib/1.4.2/angular-route.js"></script>-->
+<!--<script src="lib/1.4.2/angular-animate.js"></script>-->
+<!--<script src="lib/scroll-trigger.js"></script>-->
+<!--<script src="js/app/route/appRoute.js"></script>-->
+<!--<script>-->
+    <!--var myModule = angular.module("animate",['ngRoute','ngAnimate','scroll-trigger']);-->
+    <!--myModule.config(RouteConfig);-->
+    <!--myModule.animation('.nav-change',function(){-->
+        <!--return {-->
+            <!--beforeAddClass : function(element, className, done) {-->
+                <!--element.css({-->
+                    <!--opacity: 0-->
+                <!--}).animate({-->
+                    <!--opacity: 1-->
+                <!--},500, done);-->
+            <!--},-->
+            <!--removeClass : function(element, className, done) {-->
+                <!--element.css({-->
+                    <!--opacity: 0-->
+                <!--}).animate({-->
+                    <!--opacity: 0.7-->
+                <!--},500, done);-->
+            <!--}-->
+        <!--}-->
+    <!--});-->
+    <!--myModule.animation('.view',function(){-->
+        <!--return {-->
+            <!--enter: function(element, done) {-->
+                <!--element.css({-->
+                    <!--opacity: 0.5-->
+                <!--}).animate({-->
+                    <!--opacity: 1-->
+                <!--}, 1000, done);-->
+            <!--}-->
+        <!--};-->
+
+    <!--});-->
+    <!--myModule.directive('backButton', ['$window',function ($window) {-->
+        <!--return {-->
+            <!--restrict: 'A',-->
+            <!--link: function (scope, elem, attrs) {-->
+                <!--elem.bind('click', function () {-->
+                    <!--alert($(document).width());-->
+                    <!--alert("backButton");-->
+                    <!--console.log($window);-->
+                    <!--$window.history.back();-->
+                <!--});-->
+            <!--}-->
+        <!--}-->
+    <!--}])-->
+<!--</script>-->
+<!--<script src="js/app/commonDirective/blogRepeat.js"></script>-->
+<!--<script src="js/app/control/indexControl.js"></script>-->
+<!--<script src="js/app/control/japanControl.js"></script>-->
+<!--<script src="js/app/control/chinaControl.js"></script>-->
+<!--<script src="js/app/control/blogControl.js"></script>-->
+<!--<script src="js/app/control/blogDetailsControl.js"></script>-->
+<!--<script src="lib/bootstrap.js"></script>-->
+
+<script data-main="../../js/main.js" src="../../js/lib/require.js"></script>
+</html>
