@@ -47,6 +47,11 @@ angular.module('app')
           events: true,
           modules: [
               {
+                  name: 'ngUser',
+                  files:[]
+              }
+              ,
+              {
                   name: 'ngGrid',
                   files: [
                       'vendor/modules/ng-grid/ng-grid.min.js',

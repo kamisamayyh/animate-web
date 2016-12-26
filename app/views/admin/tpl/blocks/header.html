@@ -38,8 +38,8 @@
               <span translate="header.navbar.new.NEW">New</span> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#" translate="header.navbar.new.Article">Article</a></li>
-              <li><a href translate="header.navbar.new.USER">User</a></li>
+              <li><a ui-sref="app.form.article" translate="header.navbar.new.Article">Article</a></li>
+              <li><a ui-sref="app.form.user" translate="header.navbar.new.USER">User</a></li>
               <!--<li class="divider"></li>-->
             </ul>
           </li>
@@ -60,7 +60,7 @@
         <!-- / search form -->
 
         <!-- nabar right -->
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-controller="SettingCtrl">
           <li class="dropdown hidden-sm" is-open="lang.isopen" dropdown>
             <a href class="dropdown-toggle" dropdown-toggle>
               {{selectLang}} <b class="caret"></b>
@@ -76,7 +76,6 @@
           <li class="hidden-xs">
             <a ui-fullscreen></a>
           </li>
-
 
           <li class="dropdown" dropdown>
             <a href class="dropdown-toggle clear" dropdown-toggle>
@@ -95,8 +94,8 @@
                 <progressbar value="60" class="progress-xs m-b-none bg-white"></progressbar>
               </li>
               <li>
-                <a href>
-                  <span class="badge bg-danger pull-right">30%</span>
+                <a href ng-click="settingActive()">
+                  <!--<span class="badge bg-danger pull-right">30%</span>-->
                   <span>Settings</span>
                 </a>
               </li>

@@ -1,0 +1,45 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">{{table.title}}</h1>
+</div>
+<div class="wrapper-md">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{table.title}}
+    </div>
+    <div  class="table-responsive">
+      <table id="dataTables" ui-jq="dataTable" ui-options="{
+          bDestroy: true,
+          bRetrieve: true,
+          sAjaxSource: '../admin/user/list',
+          aoColumns: [
+            { data: 'name' },
+            { data: 'email' },
+            { data: 'account_type.name' },
+            { data: 'time' }
+          ],
+          aoColumnDefs:[
+            {
+                targets:4,
+                bSortable: false,
+                defaultContent:'<a href=# >下载</a>',
+                mRender:function(data, type, full){
+                    return '<a class=\'btn btn-info\' ng-click=toAlter(\''+full._id+'\')  >修改</a> <a href=admin/user/delet/'+full._id+' class=\'btn btn-danger \'>删除</a>'
+                },
+                fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+                    $compile(nTd)(scope);//控制器里导入$compile 和 scope
+                }
+            }
+          ],
+          oLanguage: {{dataTable.language}}
+        }" class="table table-striped m-b-none">
+        <thead>
+          <tr>
+              <th ng-repeat="head in table.tableHead">{{head}}</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,26 @@
 {
 
-"header" : {
-  "navbar" : {
-    "UPLOAD" : "Upload",
-    "new" : {
-      "NEW" : "New",
-      "Article" : "Article",
-      "USER" : "User"
+    "header" : {
+      "navbar" : {
+        "UPLOAD" : "Upload",
+        "new" : {
+          "NEW" : "New",
+          "Article" : "Article",
+          "USER" : "User"
+        },
+        "NOTIFICATIONS" : "Notifications"
+      }
     },
-    "NOTIFICATIONS" : "Notifications"
-  }
-},
+    "setting":{
+    "header":"setting",
+        "components":{
+        "FIXED_HEADER":"Fixed header",
+            "FIXED_ASIDE":"Fixed Aside",
+            "FOLDED_ASIDE":"Folded Aside",
+            "DOCK_ASIDE":"Dock Aside",
+            "BOXED_LAYOUT":"Boxed Layout"
+        }
+    },
 "aside" : {
   "nav" : {
     "HEADER" : "Navigation",

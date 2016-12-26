@@ -7,9 +7,10 @@
             用户信息
         </div>
         <div class="panel-body">
-            <form class="form-horizontal  form-validation" method="post">
+            <form class="form-horizontal  form-validation"  method="post" name="form">
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-username">用户名</label>
+                    <input ng-model="user._id" type="hidden">
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="name" ng-model="user.name" id="input-username" ng-pattern="/^[a-zA-Z0-9]{4,10}$/" required >
                     </div>
@@ -18,24 +19,22 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" >密码</label>
                     <div class="col-sm-10">
-                        <input type="password" name="password" ng-model="password" class="form-control" required >
+                        <input type="password" name="password" ng-model="user.password" class="form-control" required >
                     </div>
                 </div>
                 <div class="line line-dashed b-b line-lg pull-in"></div>
-
                 <div class="form-group">
                     <label class="col-sm-2 control-label">重复密码</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" name="confirm_password" required ng-model="confirm_password" ui-validate=" '$value==password' " ui-validate-watch=" 'password' ">
-                        <span ng-show='form.confirm_password.$error.validator'>Passwords do not match!</span>
+                        <input type="password" class="form-control" name="confirm_password" required ng-model="confirm_password" ui-validate=" '$value==user.password' " ui-validate-watch=" 'user.password' ">
+                        <span ng-show='form.confirm_password.$error.validator'>密码不一致!</span>
                     </div>
                 </div>
                 <div class="line line-dashed b-b line-lg pull-in"></div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-nickname">昵称</label>
-
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="input-nickname">
+                        <input type="text" name="nickname" ng-model="user.nickname" class="form-control" id="input-nickname">
                     </div>
                 </div>
                 <div class="line line-dashed b-b line-lg pull-in"></div>
@@ -46,11 +45,21 @@
                     </div>
                 </div>
                 <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户类型</label>
+                    <div class="col-sm-10">
+                        <select name="account" ng-model="user.account_type"  class="form-control m-b">
+                            <option ng-repeat="accountType in accountTypes"  value="{{accountType._id}}" ng-selected="accountType._id==user.account_type">{{accountType.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
                 <div class="form-group" ng-controller="ImgCropCtrl">
                     <label class="col-sm-2 control-label">头像</label>
                     <div class="col-sm-10">
                         <input ui-jq="filestyle" type="file" data-icon="false" data-classButton="btn btn-default"
                                id="fileInput" data-classInput="form-control inline v-middle input-s">
+                        <input  name="head_portrait" type="hidden" ng-model="user.head_portrait" >
                     </div>
                     <div class="col-sm-10 col-sm-offset-2 wrapper-md">
                         <div class="hbox hbox-auto-xs">
@@ -75,19 +84,17 @@
                             </div>
                         </div>
                         <div class="btn-group m-t">
-                            <label class="btn btn-default" ng-model="cropType" btn-radio="'circle'">Circle</label>
-                            <label class="btn btn-default" ng-model="cropType" btn-radio="'square'">Square</label>
+                            <label class="btn btn-default" ng-model="cropType" btn-radio="'circle'">圆形</label>
+                            <label class="btn btn-default" ng-model="cropType" btn-radio="'square'">方形</label>
                         </div>
                     </div>
                 </div>
                 <div class="line line-dashed b-b line-lg pull-in"></div>
-
-
-
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                        <button type="reset" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="reset" class="btn btn-default">取消</button>
+                        <button type="submit"  ng-click="updateUser()" ng-disabled="
+                        form.name.$invalid||form.password.$invalid||form.confirm_password.$invalid||form.nickname.$invalid||form.email.$invalid" class="btn btn-primary">保存更改</button>
                     </div>
                 </div>
             </form>

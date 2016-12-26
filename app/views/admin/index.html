@@ -2,7 +2,7 @@
 <html lang="en" data-ng-app="app">
 <head>
   <meta charset="utf-8" />
-  <title>Be Angular | Bootstrap Admin Web App with AngularJS</title>
+  <title>Animate</title>
   <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <link rel="stylesheet" href="css/app.css" type="text/css" />
+  <link rel="stylesheet" href="vendor/layer/skin/default/layer.css" />
 </head>
 <body ng-controller="AppCtrl">
   <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
@@ -18,6 +19,9 @@
 
   <!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
+
+  <!--layer -->
+  <script src="vendor/layer/layer.js"></script>
 
   <!-- Angular -->
   <script src="vendor/angular/angular.js"></script>
@@ -27,7 +31,7 @@
   <script src="vendor/angular/angular-resource/angular-resource.js"></script>
   <script src="vendor/angular/angular-sanitize/angular-sanitize.js"></script>
   <script src="vendor/angular/angular-touch/angular-touch.js"></script>
-<!-- Vendor -->
+  <!-- Vendor -->
   <script src="vendor/angular/angular-ui-router/angular-ui-router.js"></script> 
   <script src="vendor/angular/ngstorage/ngStorage.js"></script>
 
@@ -61,6 +65,9 @@
   <script src="js/directives/ui-toggleclass.js"></script>
   <script src="js/directives/ui-validate.js"></script>
   <script src="js/controllers/bootstrap.js"></script>
+
+  <script src="js/controllers/setting.js"></script>
   <!-- Lazy loading -->
+  <script src="js/services/load-config.js"></script>
 </body>
 </html>

@@ -31,11 +31,25 @@ angular.module('app')
               })
               .state('app.table.user', {
                   url: '/user',
-                  templateUrl: 'tpl/table_datatable.html'
+                  templateUrl: 'tpl/table_user.html',
+                  controller:'TableUserCtrl',
+                  resolve: {
+                      deps: ['uiLoad',
+                          function( uiLoad ){
+                              return uiLoad.load( ['js/controllers/table.user.js' ] );
+                          }]
+                  }
               })
               .state('app.table.article', {
                   url: '/article',
-                  templateUrl: 'tpl/table_datatable.html'
+                  templateUrl: 'tpl/table_article.html',
+                  controller:'TableArticleCtrl',
+                  resolve: {
+                      deps: ['uiLoad',
+                          function( uiLoad ){
+                              return uiLoad.load( ['js/controllers/table.article.js'] );
+                          }]
+                  }
               })
               // form
               .state('app.form', {
@@ -64,14 +78,38 @@ angular.module('app')
                   }
               })
               .state('app.form.user', {
-                  url: '/user',
+                  url: '/user/:userId',
                   templateUrl: 'tpl/form_user.html',
+                  controller: 'FormUserCtrl',
                   resolve: {
-                      deps: ['$ocLazyLoad',
-                          function( $ocLazyLoad){
+                      deps: ['$ocLazyLoad','uiLoad',
+                          function( $ocLazyLoad,uiLoad){
                               return $ocLazyLoad.load('ngImgCrop').then(
                                   function(){
                                       return $ocLazyLoad.load('js/controllers/imgcrop.js');
+                                  }
+                              ).then(
+                                  function(){
+                                      return uiLoad.load( ['js/controllers/form.user.js'] );
+                                  }
+                              );
+                          }]
+                  }
+              })
+              .state('app.form.setting',{
+                  url:'/setting',
+                  templateUrl: 'tpl/form_setting.html',
+                  controller:'FormSettingCtrl',
+                  resolve: {
+                      deps: ['$ocLazyLoad','uiLoad',
+                          function( $ocLazyLoad,uiLoad){
+                              return $ocLazyLoad.load('ngImgCrop').then(
+                                  function(){
+                                      return $ocLazyLoad.load('js/controllers/imgcrop.js');
+                                  }
+                              ).then(
+                                  function(){
+                                      return uiLoad.load( ['js/controllers/form.setting.js'] );
                                   }
                               );
                           }]
