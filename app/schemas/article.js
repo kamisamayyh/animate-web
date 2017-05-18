@@ -38,7 +38,7 @@ ArticleSchema.pre('save',function(next){
     }
 
     next();
-})
+});
 ArticleSchema.statics = {
     fetch: function(cb){
         return this
@@ -51,6 +51,6 @@ ArticleSchema.statics = {
             .findOne({_id:id})
             .exec(cb)
     }
-}
+};
 
 module.exports = ArticleSchema;

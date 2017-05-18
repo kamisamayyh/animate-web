@@ -2,7 +2,65 @@
     <h1 class="m-n font-thin h3">文章</h1>
 </div>
 <div class="wrapper-md">
-    <div lazy-load="textAngular">
-        <div text-angular ng-model="htmlVariable" class="btn-groups"></div>
-    </div>
+
+    <form class="form-horizontal  form-validation"  method="post" name="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" >标题</label>
+            <input ng-model="article._id" type="hidden">
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" ng-model="article.title"  required >
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label ">文章类别</label>
+            <div class="col-sm-10">
+                <ui-select ng-model="article.article_type" theme="bootstrap">
+                    <ui-select-match placeholder="请选择一个类型">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices  group-by="'group'" repeat="item in article_type | filter: $select.search">
+                        <span  ng-bind-html="item.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+                <input type="text" ng-model="article.article_type.name" placeholder="如果没有想要的类型请输入需要创建的类型" class="form-control" name="type"  required >
+            </div>
+        </div>
+        <div class="form-group" >
+            <label class="col-sm-2 control-label">图片</label>
+            <div class="col-sm-10">
+                <input ui-jq="filestyle" file-model="myFile" name="picture" type="file" data-icon="false" data-classButton="btn btn-default"
+                       id="fileInput" data-classInput="form-control inline v-middle input-s" >
+                <input  type="hidden" ng-model="article.image" name="picture_hidden" >
+            </div>
+            <div class="col-sm-10 col-sm-offset-2 wrapper-md">
+                <div class="hbox hbox-auto-xs">
+                    <div class="col">
+                        <div class="wrapper-sm b-a bg-white m-r-xs m-b-xs">
+                            <div class="bg-light">
+                                <img ng-src="{{article.image}}"style="max-width:320px;max-height:320px;margin:0 auto;display:block;"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group" >
+            <label class="col-sm-2 control-label">内容</label>
+            <div class="col-sm-10">
+                <div lazy-load="textAngular">
+                    <div text-angular ng-model="article.content" class="btn-groups"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+                <button type="reset" class="btn btn-default">取消</button>
+                <button type="submit"  ng-click="updateArticle()" ng-disabled="
+                        form.$invalid" class="btn btn-primary">保存更改</button>
+            </div>
+        </div>
+    </form>
 </div>

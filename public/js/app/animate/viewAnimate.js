@@ -5,7 +5,7 @@ define(['app','jquery'],function(app){
     return app.animation('.view',function(){
         return {
             enter: function(element, done) {
-                element.css({
+                $(element).css({
                     opacity: 0.5
                 }).animate({
                     opacity: 1

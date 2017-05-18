@@ -32,16 +32,17 @@
 
         "ARTICLE" : "Article",
         "USER" : "User"
+
       },
       "form" : {
         "FORM" : "Form",
         "ARTICLE":"Article",
-        "USER":"User",
-        "FORM_ELEMENTS" : "Form elements",
-        "FORM_VALIDATION" : "Form validation",
-        "FORM_WIZARD" : "Form wizard"
+        "USER":"User"
+
+
       },
       "pages" : {
+        "SETINDEX":"SetIndex",
         "PAGES" : "Pages",
         "PROFILE" : "Profile",
         "POST" : "Post",

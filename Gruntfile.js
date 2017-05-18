@@ -2,7 +2,7 @@ module.exports = function(grunt){
     grunt.initConfig({
         watch:{
             js: {
-                files:['public/js/**', 'models/**/*.js', 'schemas/**/*.js'],
+                files:['public/js/**', 'models/**/*.js', 'schemas/**/*.js','app/**'],
 //                tasks:['jshint'],
                 options:{
                     livereload: true

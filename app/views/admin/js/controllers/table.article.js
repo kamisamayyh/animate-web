@@ -2,7 +2,7 @@
  * Created by SoRa on 2016/12/19 0019.
  */
 
-app.controller('TableArticleCtrl',function($scope,$http){
+app.controller('TableArticleCtrl',function($scope,$http,$state){
     var lang = {
         "sProcessing": "处理中...",
         "sLengthMenu": "每页 _MENU_ 项",
@@ -30,10 +30,27 @@ app.controller('TableArticleCtrl',function($scope,$http){
     };
     var table = {
         title:"文章列表",
-        tableHead:["用户名","邮箱","用户类型","最后登录日期","操作"]
+        tableHead:["标题","作者","文章类型","创建日期","操作"]
     }
 
     $scope.table = table;
     $scope.dataTable = {};
     $scope.dataTable.language = lang;
+
+    $scope.toSelect = function(id){
+        $state.go('app.form.article',{articleId:id});
+    };
+
+    $scope.toDel = function(id){
+
+        $http({url:"/admin/article/del",method:"POST",data:{_id:id}})
+            .success(function(data){
+                layer.msg(data.msg);
+                $state.reload();
+            })
+            .error(function(){
+                layer.msg("网络出错！");
+            })
+    }
+
 })

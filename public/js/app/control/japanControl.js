@@ -1,13 +1,24 @@
 /**
  * Created by SoRa on 2016/8/18 0018.
  */
-define(['app'], function(app){
-    return app.controller("japan",['$scope','$http',
-        function ($scope,$http){
-            $scope.carouselImgs = ["images/carousel/Carousel1.png","images/carousel/Carousel2.png","images/carousel/Carousel3.png"];
-            $http.get("test/japan_test.txt").
+define(['app','jquery'], function(app){
+    return app.controller("japan",['$scope','$http','$rootScope',
+        function ($scope,$http,$rootScope){
+            $http.get('/admin/index/get')
+                .success(function(data){
+                    $rootScope.index = data.data;
+                    $scope.carouselImgs = $rootScope.index.images2;
+                });
+            $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+                //下面是在table render完成后执行的js
+                $('#myCarousel').carousel({
+                    interval: 3000
+                });
+            });
+
+            $http({url:"/index/getArticleByTypeName",method:"POST",data:{name:"日本动漫"}}).
                 success(function(data){
-                    var Animates = data;
+                    var Animates = data.data;
                     var NumberPerLine = 3;
                     var Rows = new Array();
                     var rowLength = parseInt(Animates.length/NumberPerLine);

@@ -4,28 +4,88 @@
     <div class="row">
         <div class="article">
             <div class="article-header row">
-                <div class="col-sm-2 button">Previous post</div><div class="col-sm-2 button">Next post</div><div class="col-sm-8 blank"></div>
+                <div class="col-xs-6 col-sm-2 button">Previous post</div><div class="col-xs-6 col-sm-2 button">Next post</div><div class="col-sm-8 blank"></div>
             </div>
+
             <div class="article-content row">
-                <div class="article-content-header">
-                    {{details.detailsTitle}}
+                <div class="article-content-header text-center">
+                    {{details.title}}
                 </div>
+                <div class="article-title">
+                    <div class="row">
+                        <span class="col-xs-4"><i class="iconfont">&#xe613;</i>{{details.meta.createAt}}</span>
+                        <span class="col-xs-4"><i class="iconfont">&#xe600;</i>{{details.author.name}}</span>
+                        <span class="col-xs-4"><i class="iconfont">&#xe63f;</i>eyes</span>
+                    </div>
+                </div>
+                <img style="width: 100%;" ng-src="{{details.image}}">
                 <div class="article-content-body row">
-                    <div class="article-title">
-                        <div class="col-sm-2"><span class="type">STICKY</span></div>
-                        <div class="col-sm-10">
-                            <span class="width-33"><i class="iconfont">&#xe613;</i>2016.05.09</span>
-                            <span class="width-33"><i class="iconfont">&#xe600;</i>author</span>
-                            <span class="width-33"><i class="iconfont">&#xe63f;</i>eyes</span>
+
+                    <div class="article-content-main text-center" ng-bind-html="details.content | trustHtml">
+                    </div>
+                </div>
+            </div>
+            <hr class="style-segmentation">
+            <div class="article-footer row">
+                <p class="col-xs-12">Categories:{{details.article_type.name}}</p>
+                <hr class="style-segmentation">
+                <p class="col-xs-12">Tags:{{details.article_type.name}}</p>
+            </div>
+            <hr class="style-segmentation">
+            <div class="comments" style="padding: 1em;">
+                <div class="media-list">
+                    <div class="media" ng-repeat="comment in comments">
+                        <div class="pull-left">
+                            <a href="" class="comment">
+                                <img style="width: 64px;height: 64px" class="media-object">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{comment.name}}</h4>
+                            <p>{{comment.content}}</p>
                         </div>
                     </div>
-                    <div class="article-content-main text-center" ng-bind-html="details.detailsContent | trustHtml">
+                </div>
+                <div class="media-list">
+                    <div class="text-center" ng-if="!comment_loading.loading_flag" ng-click="comment_loading.loading_function()"><img style="width: 40px;cursor:pointer;" ng-src="images/loading/down.png"></div>
+                    <div class="text-center"  ng-if="comment_loading.loading_flag"><img ng-src="images/loading/loading.gif"></div>
+                </div>
+                <hr class="style-segmentation">
+                <div class="media-list">
+                    <div class="media">
+                        <div class="pull-left">
+                            <a href="#comments" class="comment">
+                                <img style="width: 64px;height: 64px" class="media-object">
+                            </a>
+                        </div>
+
+                        <div class="media-body">
+                           <form  name="form" class="form-horizontal  form-validation"  method="post" >
+                               <div class="row" style="margin-bottom: 20px;">
+                                   <div class="col-sm-3">
+                                       <input class="form-control" type="text" name="name" ng-model="comment.name" placeholder="NAME" required>
+                                   </div>
+                               </div>
+
+                               <div class="row" style="margin-bottom: 20px;">
+                                   <div class="col-sm-3">
+                                       <input class="form-control" type="text" name="email" ng-model="comment.email" placeholder="EMAIL" required>
+                                   </div>
+                               </div>
+                                <div class="row" style="margin-bottom: 20px;">
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" row="3" ng-model="comment.content" required name="content"></textarea>
+                                    </div>
+                                </div>
+                               <div class="row" style="margin-bottom: 20px;">
+                                   <div class="col-sm-9">
+                                       <button type="button" class="btn btn-primary" ng-disabled=" form.$invalid" ng-click="commentUpdate()">提交</button>
+                                   </div>
+                               </div>
+                           </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="article-footer">
-                <p>Categories:   公告</p>
-                <p>Tags:  公告</p>
             </div>
         </div>
     </div>

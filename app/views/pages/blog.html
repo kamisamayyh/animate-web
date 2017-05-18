@@ -8,11 +8,11 @@
     <div class="row">
         <div class="row"  ng-repeat="row in rows">
             <div class="col-sm-4" ng-repeat="animate in row">
-                <a href="#/blogDetails/{{animate.title}}">
+                <a href="#/blogDetails/{{animate._id}}">
                     <div class="article">
                         <h4>{{animate.title}}</h4>
-                        <img ng-src="{{animate.imageSrc}}">
-                        <p>{{animate.content}}</p>
+                        <img ng-src="{{animate.image}}">
+                        <p ng-bind-html="animate.content | trustHtml" style="max-height: 200px;overflow: hidden;" ></p>
                     </div>
                 </a>
             </div>

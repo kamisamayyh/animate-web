@@ -11,6 +11,8 @@ require.config({
 
         "bootstrap":"lib/bootstrap",
 
+        "layer":"lib/layer/layer",
+
         "angular" : "lib/1.4.2/angular",
         "angular-route" : "lib/1.4.2/angular-route",
         "angular-animate" : "lib/1.4.2/angular-animate",
@@ -27,7 +29,7 @@ require.config({
         "japanCtrl" : "app/control/japanControl",
 
         "slideIntoDirective":"app/directive/slideInto",
-
+        "onFinishRenderFilters":"app/directive/OnFinishRenderFilters",
         'viewAnimate':'app/animate/viewAnimate',//animate
         'navChangeAnimate':'app/animate/navChangeAnimate',
 
@@ -42,6 +44,10 @@ require.config({
         'bootstrap':{
             deps: ["jquery"],
             exports: 'bootstrap'
+        },
+        'layer':{
+            deps: ["jquery"],
+            exports: 'layer'
         },
         'angular': {
             exports: 'angular'
@@ -62,7 +68,7 @@ require.config({
 });
 
 
-require(['jquery','angular','angular-route','angular-animate','scroll-trigger','app','route','blogCtrl','blogDetailsCtrl','chinaCtrl','indexCtrl','japanCtrl','slideIntoDirective','viewAnimate','navChangeAnimate','trustHtml'],function ($,angular){
+require(['jquery','angular','angular-route','angular-animate','scroll-trigger','app','route','blogCtrl','blogDetailsCtrl','chinaCtrl','indexCtrl','japanCtrl','slideIntoDirective','viewAnimate','navChangeAnimate','trustHtml','onFinishRenderFilters'],function ($,angular){
 
     $(function () {
         angular.bootstrap(document,["animateApp"]);

@@ -1,14 +1,14 @@
 <link href="css/animatePage.css" rel="stylesheet">
 <div>
-    <div id="myCarousel" class="carousel slide">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1000">
         <!-- 轮播（Carousel）指标 -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}" ng-repeat="carouselImg in carouselImgs"></li>
+            <li data-target="#myCarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}" ng-repeat="carouselImg in carouselImgs" on-finish-render-filters=""></li>
         </ol>
         <!-- 轮播（Carousel）项目 -->
         <div class="carousel-inner">
             <div class="item {{$index==0?'active':''}}" ng-repeat="carouselImg in carouselImgs">
-                <div class="img-carousel" style="background-image: url({{carouselImg}})"></div>
+                <div class="img-carousel" style="background-image: url({{carouselImg.src}})"></div>
                 <!--<img src="images/carousel/Carousel1.png" alt="First slide">-->
             </div>
         </div>
@@ -16,11 +16,13 @@
     <div class="container content">
         <div class="row"  ng-repeat="row in rows">
             <div class="col-sm-4" ng-repeat="animate in row">
+                <a href="#/blogDetails/{{animate._id}}">
                 <div class="article">
                     <h4>{{animate.title}}</h4>
-                    <img ng-src="{{animate.imageSrc}}">
-                    <p>{{animate.content}}</p>
+                    <img ng-src="{{animate.image}}">
+                    <p ng-bind-html="animate.content | trustHtml" style="max-height: 200px;overflow: hidden;"></p>
                 </div>
+                    </a>
             </div>
         </div>
     </div>

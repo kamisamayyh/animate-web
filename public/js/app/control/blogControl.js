@@ -4,10 +4,10 @@
 define(['app'], function(app){
     return app.controller("blog",['$scope','$http',
         function ($scope,$http){
-            $scope.carouselImgs = ["images/carousel/Carousel1.png","images/carousel/Carousel2.png","images/carousel/Carousel3.png"];
-            $http.get("test/china_test.txt").
+
+            $http.get("/index/getArticles").
                 success(function(data){
-                    var Animates = data;
+                    var Animates = data.data;
                     var NumberPerLine = 3;
                     var Rows = new Array();
                     var rowLength = parseInt(Animates.length/NumberPerLine);

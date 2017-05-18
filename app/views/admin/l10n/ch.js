@@ -34,13 +34,11 @@
                 "form" : {
                     "FORM" : "新建",
                         "ARTICLE":"文章",
-                        "USER":"用户",
-                        "FORM_ELEMENTS" : "Form elements",
-                        "FORM_VALIDATION" : "Form validation",
-                        "FORM_WIZARD" : "Form wizard"
+                        "USER":"用户"
                 },
                 "pages" : {
-                    "PAGES" : "Pages",
+                    "PAGES" : "页面",
+                        "SETINDEX":"设置主页",
                         "PROFILE" : "Profile",
                         "POST" : "Post",
                         "SEARCH" : "Search",

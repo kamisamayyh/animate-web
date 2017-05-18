@@ -43,10 +43,13 @@ header{
 .article-header .button:hover{
     opacity: 0.7;
 }
+.article-title{
+    padding: 1em;
+}
 .article-content-header{
     text-align: left;
     padding: 1em 2em;
-    background-color: #808080;
+
     font-size: 1.3em;
 }
 .article-content-body{
@@ -65,6 +68,12 @@ header{
     display: inline-block;
     width: 33%;
     text-align: center;
+}
+
+hr.style-segmentation {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 @media screen and (max-width: 759px) {
     .article-header .blank{

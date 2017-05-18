@@ -37,5 +37,21 @@ app.controller('TableUserCtrl',function($scope,$http,$state,$compile){
     $scope.toAlter = function(id){
         $state.go('app.form.user',{userId:id});
     }
+    $scope.toDel = function(id){
+        layer.confirm('确认删除？', {
+            btn: ['确认','取消'] //按钮
+        }, function(){
+            $http({url:"/admin/user/del",method:"POST",data:{_id:id}})
+                .success(function(data){
+                    layer.msg(data.msg);
+                    $state.reload();
+                })
+                .error(function(){
+                    layer.msg("网络出错！");
+                })
+        }, function(){
 
+        });
+
+    }
 })

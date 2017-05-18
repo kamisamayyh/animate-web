@@ -36,20 +36,21 @@ UserSchema.pre('save',function(next){
     else{
         this.meta.update = Date.now();
     }
-    var salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
-    var hash = bcrypt.hashSync(user.password,salt);
-    user.password = hash;
+//    var salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
+//    var hash = bcrypt.hashSync(user.password,salt);
+//    user.password = bcrypt.hashSync(user.password,salt);
     next();
 });
 UserSchema.methods={
     comparePassword :function(_password,cb){
+
         bcrypt.compare(_password,this.password,function(err,isMatch){
             if(err) return cb(err);
             cb(null,isMatch);
         });
         //cb(null,bcrypt.compareSync(_password,this.password));
     }
-}
+};
 UserSchema.statics = {
     fetch: function(cb){
         return this
@@ -60,6 +61,11 @@ UserSchema.statics = {
     findById: function(id,cb){
         return this
             .findOne({_id:id})
+            .exec(cb)
+    },
+    findByNmae:function(name,cb){
+        return this
+            .findOne({name:name})
             .exec(cb)
     }
 }

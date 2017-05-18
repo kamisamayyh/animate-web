@@ -22,8 +22,8 @@
                 targets:4,
                 bSortable: false,
                 defaultContent:'<a href=# >下载</a>',
-                mRender:function(data, type, full){
-                    return '<a class=\'btn btn-info\' ng-click=toAlter(\''+full._id+'\')  >修改</a> <a href=admin/user/delet/'+full._id+' class=\'btn btn-danger \'>删除</a>'
+                  mRender:function(data, type, full){
+                    return '<a class=\'btn btn-info\' ng-click=toAlter(\''+full._id+'\') >修改</a> <a ng-click=toDel(\''+full._id+'\') class=\'btn btn-danger \'>删除</a>'
                 },
                 fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
                     $compile(nTd)(scope);//控制器里导入$compile 和 scope

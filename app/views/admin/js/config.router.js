@@ -62,16 +62,36 @@ angular.module('app')
 //                      }]
 //                  }
               })
+              .state('app.form.setIndex', {
+                  url: '/setIndex',
+                  templateUrl: 'tpl/form_set_index.html',
+                  controller: 'FormSetIndexCtrl',
+                  resolve: {
+                      deps: ['$ocLazyLoad',
+                          function( $ocLazyLoad ){
+                              return $ocLazyLoad.load('js/controllers/form.set.index.js').then(
+//                                  function(){
+//                                      return $ocLazyLoad.load('ui.select');
+//                                  }
+                              )
+
+                          }]
+                  }
+              })
               .state('app.form.article', {
-                  url: '/article',
+                  url: '/article/:articleId',
                   templateUrl: 'tpl/form_article.html',
-                  controller: 'EditorCtrl',
+                  controller: 'FormArticleCtrl',
                   resolve: {
                       deps: ['$ocLazyLoad',
                           function( $ocLazyLoad ){
                               return $ocLazyLoad.load('textAngular').then(
                                   function(){
-                                      return $ocLazyLoad.load('js/controllers/editor.js');
+                                      return $ocLazyLoad.load('js/controllers/form.article.js').then(
+                                          function(){
+                                              return $ocLazyLoad.load('ui.select');
+                                        }
+                                      )
                                   }
                               );
                           }]
@@ -96,6 +116,7 @@ angular.module('app')
                           }]
                   }
               })
+
               .state('app.form.setting',{
                   url:'/setting',
                   templateUrl: 'tpl/form_setting.html',

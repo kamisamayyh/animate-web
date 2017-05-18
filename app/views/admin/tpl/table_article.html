@@ -10,11 +10,11 @@
             <table ui-jq="dataTable" ui-options="{
           bDestroy: true,
           bRetrieve: true,
-          sAjaxSource: '../admin/user/list',
+          sAjaxSource: '../admin/article/list',
           aoColumns: [
-            { data: 'name' },
-            { data: 'email' },
-            { data: 'account_type.name' },
+            { data: 'title' },
+            { data: 'author.name' },
+            { data: 'article_type.name' },
             { data: 'time' }
           ],
           aoColumnDefs:[
@@ -23,7 +23,10 @@
                 bSortable: false,
                 defaultContent:'<a href=# >下载</a>',
                 mRender:function(data, type, full){
-                    return '<a class=\'btn btn-info\' href=admin/user/alter/'+full._id+'>修改</a> <a href=admin/user/delet/'+full._id+' class=\'btn btn-danger \'>删除</a>'
+                    return '<a class=\'btn btn-info\' ng-click=toSelect(\''+full._id+'\') >修改</a> <a ng-click=toDel(\''+full._id+'\') class=\'btn btn-danger \'>删除</a>'
+                },
+                fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+                    $compile(nTd)(scope);//控制器里导入$compile 和 scope
                 }
             }
           ],
